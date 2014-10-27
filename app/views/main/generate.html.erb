@@ -1,0 +1,49 @@
+ <script type="text/javascript" language="javascript">
+
+ $(document).ready(function(){
+ 	alert(1);
+
+ 	$('#short').click(function(){
+
+ 		var url=$('#url').val();
+ 		alert(url);
+ 		$.ajax({
+ 			url:'../generate',
+ 			type:'POST',
+ 			data:{url:url},
+ 			success : function(json)
+ 			{
+ 				alert(json["result"]);
+ 			} ,
+
+ 		});
+ 	});
+
+ });
+ </script>
+
+<h1>Welcome to Our Site</h1>
+
+<p>Get Your URL Shortend By One Click !!</p>
+<%= id %>
+
+<table width="100%">
+	<tr>
+		<td style="text-align:center">
+			<div class="row">
+				<strong><label value="Put Your URL Here :  "/></strong>
+				<input type="text" id="url" name="url"/>
+				<input type="button" id="short" name="short" value="Short It !!"/>
+			</div>
+		</td>	
+	</tr>
+	
+	<tr>
+		<td style="text-align:center">
+			<br/>
+			<h4><div id="req_res"></div></h4>
+		</td>	
+	</tr>
+</table>
+
+
